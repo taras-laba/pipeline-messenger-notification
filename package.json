@@ -1,0 +1,36 @@
+{
+  "name": "pipeline-messenger-notification",
+  "version": "0.0.1",
+  "description": "Backend to send bitbucket pipeline notification to facebook messenger",
+  "main": "server.js",
+  "scripts": {
+    "test": "lab -L"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taras-laba/pipeline-messenger-notification.git"
+  },
+  "keywords": [
+    "facebook",
+    "messenger",
+    "bitbucket",
+    "pipeline"
+  ],
+  "author": "Taras Laba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taras-laba/pipeline-messenger-notification/issues"
+  },
+  "homepage": "https://github.com/taras-laba/pipeline-messenger-notification#readme",
+  "devDependencies": {
+    "code": "^4.0.0",
+    "eslint": "^3.15.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "lab": "^12.1.0"
+  },
+  "dependencies": {
+    "hapi": "^16.1.0"
+  }
+}
