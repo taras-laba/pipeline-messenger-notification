@@ -37,7 +37,7 @@ server.route({
     method: 'POST',
     path: '/webhook',
     handler: (request, reply) => {
-        const data = request.body;
+        const data = request.payload;
 
         if (data.object === 'page') {
             data.entry.forEach(entry => {
