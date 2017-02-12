@@ -6,6 +6,10 @@ const server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 3000 });
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN || '';
 
+const receivedMessage = event => {
+    console.log('message data: ', event);
+};
+
 server.route({
     method: 'GET',
     path: '/',
@@ -25,6 +29,28 @@ server.route({
         } else {
             reply().code(403);
             console.error('failed validation; make sure validation tokens match');
+        }
+    }
+});
+
+server.route({
+    method: 'POST',
+    path: '/webhook',
+    handler: (request, reply) => {
+        const data = request.body;
+
+        if (data.object === 'page') {
+            data.entry.forEach(entry => {
+                entry.messaging.forEach(event => {
+                    if (event.message) {
+                        receivedMessage(event);
+                    } else {
+                        console.log('webhook received unknown event ', event);
+                    }
+                });
+            });
+
+            reply().code(200);
         }
     }
 });
