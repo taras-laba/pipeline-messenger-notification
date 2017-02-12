@@ -7,6 +7,7 @@ module.exports = {
     "rules": {
         "hapi/hapi-capitalize-modules": "off",
         "hapi/hapi-scope-start": "off",
-        "arrow-parens": ["error", "as-needed"]
+        "arrow-parens": ["error", "as-needed"],
+        "brace-style": ["error", "1tbs"]
     }
 };
