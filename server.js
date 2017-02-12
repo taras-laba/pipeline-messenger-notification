@@ -83,11 +83,11 @@ server.route({
     method: 'POST',
     path: '/pipeline/webhook/{id}',
     handler: (req, reply) => {
-        const eventKey = req.headers['X-Event-Key'];
+        const eventKey = req.headers['x-event-key'];
         if (eventKey && eventKey === 'repo:commit_status_updated') {
             const data = req.payload;
             const id = req.params.id;
-            sendMessage(id, data.commit_status.state);
+            sendMessage(id, `status of build ${data.repository.name} is ${data.commit_status.state}`);
         }
 
         reply().code(200);
